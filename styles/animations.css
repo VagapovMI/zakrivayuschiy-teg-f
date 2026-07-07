@@ -49,15 +49,18 @@
 
 @keyframes cross-appear {
   0% {
-    opacity: 0; transform: scale(0);
+    opacity: 0;
+    transform: scale(0);
   }
 
   50% {
-    opacity: 1; transform: scale(1.2);
+    opacity: 1;
+    transform: scale(1.2);
   }
 
   100% {
-    opacity: 0; transform: scale(1);
+    opacity: 0;
+    transform: scale(1);
   }
 }
 
@@ -81,8 +84,7 @@
 
 .like-icon:hover .core,
 .like-icon:hover .main-body {
-  fill: var(--background-color-main, #fff); 
-  
+  fill: var(--background-color-main, #fff);
   -webkit-mask-image: radial-gradient(circle at center, black 0%, #fff 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
@@ -93,13 +95,6 @@
   mask-size: 0% 0%;
 
   transition: mask-size 0.5s ease, -webkit-mask-size 0.5s ease;
-}
-
-.like-icon:hover .core,
-.like-icon:hover .main-body{
-  fill: var(--hover-contour, #000);
-  -webkit-mask-size: 200% 200%;
-  mask-size: 200% 200%;
 }
 
 .card__icon-button {
