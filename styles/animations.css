@@ -1,14 +1,3 @@
-/* Опишите в этом файле все keyframes для проекта и стили анимаций иконки Like.
-
-Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
-✦ like-icon — для svg-иконки анимированного сердца
-✦ card__like-button — для кнопки Like рядом с иконкой
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
-✦ button__text — для обозначения текстового элемента внутри кнопки
-
-*/
 @keyframes heart-scale {
   0% {
     transform: scale(1);
@@ -27,170 +16,127 @@
   0% {
     opacity: 0;
   }
-  50% {
+
+  30% {
     opacity: 1;
-    fill: #ff0000;
-  }
-  100% {
-    opacity: 0;
-    fill: #ff0000;
-  }
-}
-
-@keyframes arrow {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-4px);
-  }
-}
-
-@keyframes cross-appear {
-  0% {
-    opacity: 0;
-    transform: scale(0);
-  }
-
-  50% {
-    opacity: 1;
-    transform: scale(1.2);
   }
 
   100% {
     opacity: 0;
-    transform: scale(1);
   }
 }
 
-.like-icon .core,
-.like-icon .main-body {
-  fill: #fff;
-  transition: fill 0.3s linear;
-}
-
-.like-icon .contour {
-  fill: #000;
-  transition: fill 0.3s linear;
-}
-
-.like-icon .cross {
-  stroke: #fff;
-  stroke-width: 2px;
-  opacity: 0;
-  transform-origin: center;
-}
-
-.like-icon:hover .core,
-.like-icon:hover .main-body {
-  fill: var(--background-color-main, #fff);
-  -webkit-mask-image: radial-gradient(circle at center, black 0%, #fff 100%);
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  -webkit-mask-size: 0% 0%;
-  mask-image: radial-gradient(circle at center, black 0%, #fff 100%);
-  mask-repeat: no-repeat;
-  mask-position: center;
-  mask-size: 0% 0%;
-
-  transition: mask-size 0.5s ease, -webkit-mask-size 0.5s ease;
-}
-
-.card__icon-button {
+.like-icon {
   cursor: pointer;
 }
 
-.card__icon-button:focus-visible {
-  border: 2px solid currentColor;
-  transition: border-color 0.3s ease;
+.like-icon .heart {
+  transform-origin: center;
 }
 
-.like-icon:active .core,
-.like-icon:active .main-body {
-  fill: var(--active-fill, #ff0000);
+.like-icon .contour {
+  fill: var(--contour-color, #000);
+  transition: fill 0.1s linear;
+}
+
+.like-icon .core {
+  fill: transparent;
   transition: fill 0.3s linear;
 }
 
-.like-icon:active .contour {
-  fill: var(--hover-contour, #000);
-  transition: fill 0.3s linear;
-}
-
-.is-liked.like-icon {
-  animation: heart-scale 0.3s ease-in-out forwards;
-}
-
-.is-liked.like-icon .sparks {
-  animation: sparks 0.5s ease-in-out;
-}
-
-.is-liked.like-icon .core,
-.is-liked.like-icon .main-body,
-.is-liked.like-icon .contour {
-  fill: #ff0000;
-  transition: fill 0.3s linear;
-}
-
-.is-liked.like-icon .cross {
-  animation: cross-appear 0.5s ease-in-out 0s forwards;
+.like-icon .main-body {
+  fill: transparent;
+  transition: fill 0.3s linear 0.05s;
 }
 
 .like-icon .sparks {
   opacity: 0;
-  fill: #ff0000;
 }
 
-.button:focus-visible {
-  box-shadow: 2px 2px 0 currentColor;
+.like-icon:hover .core {
+  fill: var(--accent-color, #000);
+}
+
+.like-icon:hover .main-body {
+  fill: var(--accent-color, #000);
+}
+
+.like-icon:hover .contour {
+  fill: var(--contour-color, #000);
+}
+
+.like-icon:active .core,
+.like-icon:active .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+}
+
+.like-icon:active .contour {
+  fill: var(--contour-color, #000);
+}
+
+.like-icon.is-liked .core,
+.like-icon.is-liked .main-body {
+  fill: var(--animation-fill-color, #ff0000);
+}
+
+.like-icon.is-liked .contour {
+  fill: var(--animation-fill-color, #ff0000);
+}
+
+.like-icon.is-liked .heart {
+  animation: heart-scale 0.3s ease-in 0.1s;
+}
+
+.like-icon.is-liked .sparks {
+  animation: sparks 0.5s ease-in 0.3s;
+}
+
+.card__icon-button {
+  background: transparent;
+  border: 2px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
 
-.button__text {
-  line-height: 90%;
-  font-family: var(--accent-font-family, "PressStart2P"), Arial, sans-serif;
-  font-size: 14px;
-  position: relative;
-  z-index: 1;
-}
-
-.blend-botton {
-  position: relative;
-  overflow: hidden;
-  background: var(--background-main-color, #fff);
-}
-
-.blend-botton__content {
-  position: relative;
-  z-index: 1;
-  color: var(--accent-color, #000);
-  transition: color 0.5s ease-in-out;
-  display: flex;
-  align-items: center;
-  gap: 0.5em;
-}
-
-.blend-botton::before {
-  position: absolute;
+.button::before {
   content: "";
+  position: absolute;
   inset: 0;
-  background-color: var(--accent-color, #000);
-  z-index: 0;
+  background: var(--accent-color);
   transform: translateX(-100%);
   transition: transform 0.5s ease-in-out;
 }
 
-.blend-botton:hover::before {
+.button:hover::before {
   transform: translateX(0);
 }
 
-.blend-botton:hover .blend-botton__content {
-  color: var(--blend-content-color, #fff);
+.button:focus {
+  outline: none;
 }
 
-.blend-botton:hover .like-icon .core,
-.blend-botton:hover .like-icon .main-body,
-.blend-botton:hover .like-icon .contour {
-  fill: #fff;
-  transition: fill 0.3s linear;
+.button:focus-visible {
+  box-shadow: 2px 2px 0 var(--accent-color);
+}
+
+.button__text,
+.floppy-icon {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  color: #fff;
 }
