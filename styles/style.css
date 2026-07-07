@@ -4,7 +4,7 @@
   min-inline-size: 320px;
   min-block-size: 100dvb;
   font-family: var(--main-font-family, "Inter-Variable"), Arial, sans-serif;
-  font-variation-settings: var(--main-font-weight-card);
+   font-variation-settings: 'wght' var(--text-font-weight, 400);
   color: var(--accent-color, #000);
   padding-block-start: 100px;
   background-attachment: fixed;
@@ -441,7 +441,7 @@ main {
   .button--save {
     flex-direction: row;
     max-width: 355px;
-    min-height: 55px; 
+    min-height: 55px;
     padding: 13.5px 19px;
     font-size: 14px;
   }
