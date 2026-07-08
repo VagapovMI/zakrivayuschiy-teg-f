@@ -309,11 +309,6 @@
   z-index: 0;
   min-height: 38px;
   min-width: 261px;
-  border: 2px solid var(--accent-color);
-  background-color: var(--background-main-color);
-  color: var(--accent-color);
-  font-family: var(--accent-font-family), Arial, sans-serif;
-  cursor: pointer;
 }
 
 .modal__button-text {
